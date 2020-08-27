@@ -11,7 +11,7 @@ var nombre; // Inicializando variable sin valor --> undefined
 var carrito1 = 'Libro',
     carrito2 = 'Lápiz';
 
-// let
+// LET
 let nombre1 = 'Juan';
 let nombre2; // Inicializando variable vacía --> undefined
 let texto, mensaje; // Inicializando dos variables vacías
@@ -23,7 +23,7 @@ let carro1 = 'Libro',
 carro1 = 'Cuaderno'; // Reasignando valor de la variable
 let carro1 = 'Libro'; // --> Uncaught Syntax Error: Identifier 'producto' has already been declared (Se puede volver a cambiar el valor a la variable, pero no se puede volver a declarar)
 
-// const 
+// CONST 
 const producto; // --> Uncaught SyntaxError: Missing initializer in const declaration (las const siempre deben inicializarse con un valor, nunca deben estar vacías, ya que estas no se pueden re escribir)
 
 const animal = 'gato';
