@@ -197,6 +197,7 @@ puntaje += 3; // 14
 
 puntaje -= 10; // 4
 
+
 // TIPOS DE DATOS
 // Primitivos
 let valor; // undefined
@@ -233,7 +234,6 @@ console.log(typeof valor); // Object
 
 
 // OPERADORES DE COMPARACIÓN
-
 const numero1 = 20,
       numero2 = 50,
       numero3 = '20';
@@ -271,7 +271,6 @@ const autenticado = true;
 console.log(autenticado ? 'Sí está autenticado' : 'No está autenticado'); // Sí está autenticado
 
 // CONVERTIR STRINGS A NUMEROS
-
 const valor1 = '50',
       valor2 = 10,
       valor3 = 'tres',
