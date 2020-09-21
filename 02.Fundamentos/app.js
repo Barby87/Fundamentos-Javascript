@@ -270,7 +270,7 @@ console.log(null === undefined); // false
 const autenticado = true;
 console.log(autenticado ? 'Sí está autenticado' : 'No está autenticado'); // Sí está autenticado
 
-// CONVERTIR STRINGS A NUMEROS
+// CONVERTIR STRINGS A NÚMEROS
 const valor1 = '50',
       valor2 = 10,
       valor3 = 'tres',
@@ -466,7 +466,7 @@ meses[0] = 'Nuevo mes'; // Reemplaza el primer elemento 'Enero' por 'Nuevo mes'
 meses[7] = 'Ultimo mes'; // Agrega un elemento en la posición 7
 meses[10] = 'Otro mes'; // Se salta la posición que no existe y crea la posición 10
 
-// Agragar nuevo elemento en la última posición del array
+// Agregar nuevo elemento en la última posición del array
 meses.push('Agosto');
 
 const carrito = [];
@@ -500,13 +500,13 @@ const producto3 = {
 
 carrito.unshift(producto3);
 
-// Agregar elementos con SPREAD OPERATOR (Forma declarativa, no modifica el array actual)
+// Crear array con SPREAD OPERATOR (Forma declarativa, no modifica el array actual)
 let resultado;
 resultado = [...carrito, producto]; // Arrays originales no son modificados
 resultado = [...resultado, producto2]; 
 resultado = [producto, ...resultado]; 
 
-// ELiminar elementos con del arreglo
+// Agregar elementos al final del arreglo
 carrito.push(producto2);
 carrito.push(producto);
 
@@ -515,8 +515,9 @@ const producto3 = {
     precio: 50
 }
 
+// Agregar  elementos al inicio del arreglo
 carrito.unshift(producto3);
-console.log(carrito); //[{nombre: 'Teclado'}, precio: 50}, {nombre: 'Celular', precio: 800}, {nombre: 'Monitor de 32 pulgadas', precio: 400}]
+console.log(carrito); //[{nombre: 'Teclado', precio: 50}, {nombre: 'Celular', precio: 800}, {nombre: 'Monitor de 32 pulgadas', precio: 400}]
 
 // Eliminar ultimo elemento
 carrito.pop();
@@ -525,6 +526,77 @@ console.log(carrito); // [{nombre: 'Teclado'}, precio: 50}, {nombre: 'Celular', 
 //Eliminar primer elemento
 carrito.shift();
 console.log(carrito); // [{nombre: 'Celular', precio: 800}]
+
+// Eliminar un elemento en específico 
+carrito.splice(1, 1); // El primer parámetro es la posición desde el cual quiero eliminar el elemento, el segundo parámetro indica cuántos elementos deseo elminar desde la posición 1.
+
+// Desestructuración de arrays
+const numeros = [10,20,30,40,50];
+
+const [primero, segundo, tercero] = numeros;
+
+console.log(primero); // 10
+console.log(segundo); // 20
+console.log(tercero); // 30
+
+// Si sólo quiero el tercer valor, los primeros espacios los dejo en blanco
+const [ , , tercero] = numeros;
+
+// Quinto elemento
+const [ , , , , quinto] = numeros;
+
+// Quiero extraer  los dos primeros valores, pero los últimos tres que estén dentro de un arreglo 
+const [primero, segundo, ...tercero] = numeros;
+
+console.log(tercero); // [30, 40, 50]
+
+const [primero, ...segundo] = numeros;
+console.log(segundo); // [20, 30, 40, 50]
+
+// Iteración de un arreglo
+const carrito = [
+    {
+        nombre: 'Monitor de 27 pulgadas', 
+        precio: 500
+    },
+    {
+        nombre: 'Televisión', 
+        precio: 100
+    },
+    {
+        nombre: 'Tablet', 
+        precio: 200
+    },
+    {
+        nombre: 'Audifonos', 
+        precio: 300
+    },
+    {
+        nombre: 'Teclado', 
+        precio: 400
+    },
+    {
+        nombre: 'Celular', 
+        precio: 700
+    }
+]
+
+for(let i = 0; i < carrito.length; i++) {
+    console.log(carrito[i]); // {nombre: "Monitor de 27 pulgadas", precio: 500} {nombre:"Televisión", precio: 500} {nombre:"Tablet", precio: 200} {nombre:"Audifonos", precio: 300} {nombre:"Teclado", precio: 400} {nombre:"Celular", precio: 700}
+
+    console.log(carrito[i].nombre); // Monitor de 27 pulgadas, Televisión, Tablet, Audifonos, Teclado, Celular
+}
+
+// forEach
+carrito.forEach(function(producto) {
+    console.log(`${producto.nombre} - Precio: ${producto.precio}`);
+})
+
+// map: crea un arreglo nuevo (forEach no)
+const nuevoArreglo = carrito.map(function(producto) {
+    return `${producto.nombre} - Precio: ${producto.precio}`;
+})
+console.log(nuevoArreglo); // ["Monitor 27 pulgadas - Precio: 500", "Television - Precio: 100", "Tablet - Precio: 200", "Audifonos - Precio: 300", "Teclado - Precio: 400", "Celular - Precio: 700"]
 
 
 
